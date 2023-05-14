@@ -194,7 +194,7 @@
                             <div class="event-post">
                                 <div class="event-thumb">
                                     <a href="#"><i class="fas fa-link"></i></a> <img
-                                        src="{{ asset('front/images/ep1.jpg') }}" alt="">
+                                        src="{{ asset('storage/works/' . $work->image . '') }}" alt="">
                                     {{-- <ul class="post-meta">
                                         <li>29 August, 2018 </li>
                                         <li> 08:00 am - 01:00 pm</li>

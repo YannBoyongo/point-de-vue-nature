@@ -21,6 +21,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [App\Http\Controllers\FrontendController::class, 'home'])->name('welcome');
 Route::get('/about-us', [App\Http\Controllers\FrontendController::class, 'aboutus'])->name('about.us');
 Route::get('/contact-us', [App\Http\Controllers\FrontendController::class, 'contactus'])->name('contact.us');
+Route::get('/post-list', [App\Http\Controllers\FrontendController::class, 'posts'])->name('post.list');
+Route::get('/work-list', [App\Http\Controllers\FrontendController::class, 'works'])->name('work.list');
 
 Auth::routes();
 

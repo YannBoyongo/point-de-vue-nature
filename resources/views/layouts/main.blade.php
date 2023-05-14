@@ -43,7 +43,11 @@
                         </li>
                         <li class="nav-item"> <a class="nav-link" href="{{ route('about.us') }}">Nous Découvrir</a>
                         </li>
-                        <li class="nav-item dropdown">
+                        <li class="nav-item"> <a class="nav-link" href="{{ route('post.list') }}">Publications</a>
+                        </li>
+                        <li class="nav-item"> <a class="nav-link" href="{{ route('work.list') }}">Réalisations</a>
+                        </li>
+                        {{-- <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="blog.html" role="button" data-toggle="dropdown"
                                 aria-haspopup="true" aria-expanded="false"> Science & Société </a>
                             <ul class="dropdown-menu">
@@ -54,7 +58,7 @@
                                 <li><a href="blog-three-col.html">Blog Three Columns</a></li>
                                 <li><a href="blog-details.html">Blog Details</a></li>
                             </ul>
-                        </li>
+                        </li> --}}
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown"
                                 aria-haspopup="true" aria-expanded="false"> Média </a>

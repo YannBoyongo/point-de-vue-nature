@@ -13,8 +13,8 @@ class FrontendController extends Controller
     {
         $banners = Banner::where('status', Banner::ACTIVE)->get()->take(3);
         $partners = Partner::where('status', Partner::ACTIVE)->get();
-        $latest_posts = Post::where('status', Post::ACTIVE)->get()->take(3);
-        $latest_works = Work::where('status', Work::ACTIVE)->get()->take(2);
+        $latest_posts = Post::orderByDesc('id')->where('status', Post::ACTIVE)->get()->take(3);
+        $latest_works = Work::orderByDesc('id')->where('status', Work::ACTIVE)->get()->take(2);
         return view('welcome', compact('banners', 'latest_posts', 'partners', 'latest_works'));
     }
 
@@ -25,5 +25,16 @@ class FrontendController extends Controller
     public function contactus()
     {
         return view('contact-us');
+    }
+
+    public function posts()
+    {
+        $posts = Post::orderByDesc('id')->where('status', Post::ACTIVE)->get();
+        return view('posts', compact('posts'));
+    }
+    public function works()
+    {
+        $works = Work::orderByDesc('id')->where('status', Work::ACTIVE)->get();
+        return view('works', compact('works'));
     }
 }
