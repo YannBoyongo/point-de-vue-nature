@@ -1,10 +1,10 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\PostController;
 use App\Http\Controllers\BannerController;
 use App\Http\Controllers\PartnerController;
+use App\Http\Controllers\PostController;
 use App\Http\Controllers\SettingController;
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,17 +17,9 @@ use App\Http\Controllers\SettingController;
 |
  */
 
-Route::get('/', function () {
-    return view('welcome');
-})->name('welcome');
-
-Route::get('/about-us', function () {
-    return view('about-us');
-})->name('about.us');
-
-Route::get('/contact-us', function () {
-    return view('contact-us');
-})->name('contact.us');
+Route::get('/', [App\Http\Controllers\FrontendController::class, 'home'])->name('welcome');
+Route::get('/about-us', [App\Http\Controllers\FrontendController::class, 'aboutus'])->name('about.us');
+Route::get('/contact-us', [App\Http\Controllers\FrontendController::class, 'contactus'])->name('contact.us');
 
 Auth::routes();
 

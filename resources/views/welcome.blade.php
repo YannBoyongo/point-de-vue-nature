@@ -2,42 +2,27 @@
 
 @section('content')
     <section id="home-slider" class="owl-carousel owl-theme wf100">
-        <div class="item">
-            <div class="slider-caption">
-                <div class="container">
-                    <strong>100k Plants Grown in 2018,</strong>
-                    <h1>Heal the World</h1>
-                    <p> Environmental awareness is not a trend that comes into style a few months and stops.
-                        Individuals working towards making a small impact on Earth.</p>
-                    <a href="#" class="active">Join us Now</a> <a href="#">More About Us</a>
+        @forelse($banners as $banner)
+            <div class="item">
+                <div class="slider-caption">
+                    <div class="container">
+                        @if ($banner->title_small)
+                            <strong>{{ $banner->title_small }}</strong>
+                        @endif
+                        @if ($banner->title_big)
+                            <h1>{{ $banner->title_big }}</h1>
+                        @endif
+                        @if ($banner->description)
+                            {!! $banner->description !!}
+                        @endif
+                        <a href="{{ route('contact.us') }}" class="active">Entrer en contact</a> <a
+                            href="{{ route('about.us') }}">Nous connaitre</a>
+                    </div>
                 </div>
+                <img src="{{ asset('storage/banners/' . $banner->image . '') }}" alt="{{ $banner->title_small }}">
             </div>
-            <img src="{{ asset('front/images/h1-slide1.jpg') }}" alt="">
-        </div>
-        <div class="item">
-            <div class="slider-caption">
-                <div class="container">
-                    <strong>Organize the Management System of</strong>
-                    <h1>Recycling & Waste</h1>
-                    <p> Environmental awareness is not a trend that comes into style a few months and stops.
-                        Individuals working towards making a small impact on Earth.</p>
-                    <a href="#" class="active">Join us Now</a> <a href="#">More About Us</a>
-                </div>
-            </div>
-            <img src="{{ asset('front/images/h1-slide2.jpg') }}" alt="">
-        </div>
-        <div class="item">
-            <div class="slider-caption">
-                <div class="container">
-                    <strong>It’s very harmful for everyone</strong>
-                    <h1>Stop Air Pollution</h1>
-                    <p> Air Pollution is another main environmental pollution faced by our world today. Air
-                        pollution takes place when damaging stuff including particulates.</p>
-                    <a href="#" class="active">Join us Now</a> <a href="#">More About Us</a>
-                </div>
-            </div>
-            <img src="{{ asset('front/images/h1-slide3.jpg') }}" alt="">
-        </div>
+        @empty
+        @endforelse
     </section>
     <!--Slider End-->
     <!--About Section Start-->
@@ -171,63 +156,29 @@
                 <div class="col-md-8">
                     <!--title start-->
                     <div class="section-title">
-                        <strong>Our Latest</strong>
-                        <h2>News Posts</h2>
+                        <strong>Actualités</strong>
+                        <h2>Récentes</h2>
                     </div>
                     <!--title end-->
                     <div class="blog-list wf100">
-                        <!--Blog Post Start-->
-                        <div class="blog-post wf100">
-                            <div class="blog-thumb"> <a href="#"><i class="fas fa-link"></i></a> <img
-                                    src="{{ asset('front/images/np1.jpg') }}" alt=""></div>
-                            <div class="blog-txt">
-                                <h5><a href="#">How you can keep alive wild animals for a long period.</a>
-                                </h5>
-                                <ul class="post-meta">
-                                    <li><span>By:</span> Danial John</li>
-                                    <li><span>Posted:</span> 29 September, 2018</li>
-                                </ul>
-                                <p> According to a survey the perceived higher cost of environmentally-friendly
-                                    products is the major holdup to consumers going green. </p>
+                        @forelse($latest_posts as $post)
+                            <!--Blog Post Start-->
+                            <div class="blog-post wf100">
+                                <div class="blog-thumb"> <a href="#"><i class="fas fa-link"></i></a> <img
+                                        src="{{ asset('storage/posts/' . $post->image . '') }}" alt=""></div>
+                                <div class="blog-txt">
+                                    <h5><a href="#">{{ $post->title }}</a>
+                                    </h5>
+                                    <ul class="post-meta">
+                                        <li><span>par:</span> Admin</li>
+                                        <li><span>Posté le</span> {{ date('d-m-Y', strtotime($post->published_at)) }}</li>
+                                    </ul>
+                                    {!! Illuminate\Support\Str::limit($post->description, 80, $end = '...') !!}
+                                </div>
                             </div>
-                        </div>
-                        <!--Blog Post End-->
-                        <!--Blog Post Start-->
-                        <div class="blog-post wf100">
-                            <div class="blog-thumb"><a href="#"><i class="fas fa-link"></i></a> <img
-                                    src="{{ asset('front/images/np2.jpg') }}" alt=""></div>
-                            <div class="blog-txt">
-                                <h5><a href="#">Eliminate your plastic bottle pollution
-                                        and keep safe.</a>
-                                </h5>
-                                <ul class="post-meta">
-                                    <li><span>By:</span> Danial John</li>
-                                    <li><span>Posted:</span> 29 September, 2018</li>
-                                </ul>
-                                <p> It has survived not only five centuries, but also the leap into electronic
-                                    typesetting, remaining essentially unchange it was popularised in letraset
-                                    sheets.</p>
-                            </div>
-                        </div>
-                        <!--Blog Post End-->
-                        <!--Blog Post Start-->
-                        <div class="blog-post wf100">
-                            <div class="blog-thumb"><a href="#"><i class="fas fa-link"></i></a> <img
-                                    src="{{ asset('front/images/np3.jpg') }}" alt=""></div>
-                            <div class="blog-txt">
-                                <h5><a href="#">The effort to GoGreen has been felt
-                                        across industries.</a>
-                                </h5>
-                                <ul class="post-meta">
-                                    <li><span>By:</span> Danial John</li>
-                                    <li><span>Posted:</span> 29 September, 2018</li>
-                                </ul>
-                                <p> There are many variations of passages of Lorem Ipsum available, but the majority
-                                    have suffered alteration in some form, by injected humour, or randomised words.
-                                </p>
-                            </div>
-                        </div>
-                        <!--Blog Post End-->
+                            <!--Blog Post End-->
+                        @empty
+                        @endforelse
                     </div>
                 </div>
                 <div class="col-md-4">
@@ -336,10 +287,11 @@
     <div class="partner-logos wf100 mb80">
         <div class="container">
             <div id="partner-logos" class="owl-carousel owl-theme">
-                <div class="item"><img src="{{ asset('front/images/plogo1.png') }}" alt=""></div>
-                <div class="item"><img src="{{ asset('front/images/plogo2.png') }}" alt=""></div>
-                <div class="item"><img src="{{ asset('front/images/plogo3.png') }}" alt=""></div>
-                <div class="item"><img src="{{ asset('front/images/plogo4.png') }}" alt=""></div>
+                @forelse($partners as $partner)
+                    <div class="item"><img src="{{ asset('storage/partners/' . $partner->logo . '') }}"
+                            alt="{{ $partner->url }}" style="width:auto;height:100px"></div>
+                @empty
+                @endforelse
             </div>
         </div>
     </div>
