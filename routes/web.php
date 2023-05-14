@@ -1,9 +1,10 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PostController;
 use App\Http\Controllers\BannerController;
 use App\Http\Controllers\PartnerController;
 use App\Http\Controllers\SettingController;
-use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,6 +20,14 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 })->name('welcome');
+
+Route::get('/about-us', function () {
+    return view('about-us');
+})->name('about.us');
+
+Route::get('/contact-us', function () {
+    return view('contact-us');
+})->name('contact.us');
 
 Auth::routes();
 
@@ -60,5 +69,18 @@ Route::middleware('auth')->group(function () {
         Route::put('banners-add-image/{banner}', 'add_image')->name('banners.add.image');
         Route::put('banners-delete-image/{banner}', 'delete_image')->name('banners.delete.image');
         Route::delete('banners/{banner}', 'destroy')->name('banners.destroy');
+    });
+
+    //Post
+    Route::controller(PostController::class)->group(function () {
+        Route::get('/posts', 'index')->name('posts.index');
+        Route::get('/posts/{post}/edit', 'edit')->name('posts.edit');
+        Route::put('/posts/{post}', 'update')->name('posts.update');
+        Route::post('/posts', 'store')->name('posts.store');
+        Route::put('posts-add-image/{post}', 'add_image')->name('posts.add.image');
+        Route::put('posts-delete-image/{post}', 'delete_image')->name('posts.delete.image');
+        Route::delete('posts/{post}', 'destroy')->name('posts.destroy');
+        Route::get('posts/{post}/publish', 'publish')->name('posts.publish');
+        Route::get('posts/{post}/unpublish', 'unpublish')->name('posts.unpublish');
     });
 });
