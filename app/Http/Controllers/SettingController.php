@@ -72,27 +72,30 @@ class SettingController extends Controller
     {
         $data = $request->validate([
             'name' => 'required',
-            'email' => 'required',
+            'email_1' => 'required',
+            'email_2' => 'nullable',
             'tagline' => 'required',
-            'phone' => 'nullable',
+            'phone_1' => 'required',
+            'phone_2' => 'nullable',
             'address' => 'nullable',
             'facebook' => 'nullable',
             'twitter' => 'nullable',
             'youtube' => 'nullable',
-            'about' => 'nullable',
-            'goal' => "nullable",
+            'linkedin' => 'nullable',
         ]);
 
         $setting->name = $request->name;
-        $setting->email = $request->email;
+        $setting->email_1 = $request->email_1;
+        $setting->email_2 = $request->email_2;
         $setting->tagline = $request->tagline;
         $setting->facebook = $request->facebook;
-        $setting->phone = $request->phone;
+        $setting->phone_1 = $request->phone_1;
+        $setting->phone_2 = $request->phone_2;
         $setting->address = $request->address;
         $setting->twitter = $request->twitter;
         $setting->youtube = $request->youtube;
-        $setting->about = $request->about;
-        $setting->goal = $request->goal;
+        $setting->linkedin = $request->linkedin;
+
         $setting->save();
 
         return redirect()->route('settings.index')->with("message", __('Données modifié avec succès'));
@@ -111,14 +114,16 @@ class SettingController extends Controller
 
     public function add_logo(Setting $setting, Request $request)
     {
+        $this->validate($request, [
+            'logo' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ]);
+
         $requestedImage = $request->file('logo');
 
         if ($requestedImage) {
             $image_name = time() . '.' . $requestedImage->getClientOriginalExtension();
             $imgFile = \Intervention\Image\Facades\Image::make($requestedImage->getRealPath())
-                ->resize(152, null, function ($constraint) {
-                    $constraint->aspectRatio();
-                })->stream();
+                ->stream();
 
             Storage::disk('public')->put('settings/' . '/' . $image_name, $imgFile, 'public');
         }

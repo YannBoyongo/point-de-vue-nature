@@ -48,8 +48,9 @@ class PartnerController extends Controller
         if ($requestedImage) {
             $image_name = time() . '.' . $requestedImage->getClientOriginalExtension();
             $imgFile = \Intervention\Image\Facades\Image::make($requestedImage->getRealPath())
-                ->resize(1200, null, function ($constraint) {
+                ->resize(null, 300, function ($constraint) {
                     $constraint->aspectRatio();
+                    $constraint->upsize();
                 })->stream();
 
             Storage::disk('public')->put('partners/' . '/' . $image_name, $imgFile, 'public');

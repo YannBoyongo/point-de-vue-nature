@@ -18,10 +18,10 @@ return new class extends Migration
             $table->string('name');
             $table->string('tagline');
             $table->string('logo')->nullable();
-            $table->string('email-1')->nullable();;
-            $table->string('email-2')->nullable();
-            $table->string('phone-1')->nullable();
-            $table->string('phone-2')->nullable();
+            $table->string('email_1')->nullable();;
+            $table->string('email_2')->nullable();
+            $table->string('phone_1')->nullable();
+            $table->string('phone_2')->nullable();
             $table->string('address')->nullable();
             $table->string('facebook')->nullable();
             $table->string('twitter')->nullable();
