@@ -34,7 +34,7 @@
                     </div>
                     <div class="col-lg-6">
                         <div class="about-video-img"> <a href="#"><i class="fas fa-play"></i></a> <img
-                                src="images/aboutimg.jpg" alt=""> </div>
+                                src="{{ asset('front/images/aboutimg.jpg') }}" alt=""> </div>
                     </div>
                 </div>
             </div>
@@ -45,15 +45,15 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-4">
-                        <div class="story-title-bg"> <strong class="t1">ecova.</strong> <strong
-                                class="t2">20+</strong> <strong class="t3">Years of
+                        <div class="story-title-bg"> <strong class="t1">P.V.N.</strong> <strong
+                                class="t2">09+</strong> <strong class="t3">ans de
                                 Services</strong>
                         </div>
                     </div>
                     <div class="col-lg-8">
                         <div class="section-title-2">
-                            <h5>About our History</h5>
-                            <h2>Our Success Story</h2>
+                            <h5>Notre histoire</h5>
+                            <h2>Faits et Chiffre</h2>
                         </div>
                         <!--eco History Start-->
                         <div class="eco-history">
@@ -70,31 +70,13 @@
                                     <!--Timeline Text Start-->
                                     <div>
                                         <div class="row">
-                                            <div class=" col-4">
+                                            <div class=" col-12">
                                                 <div class="timeline-box">
                                                     <h6>We Started</h6>
                                                     <p> In 1998, We took step towards to make healthy and safe Eco
                                                         Environment in the different fields, and our passion is: to clean
                                                         the Eco Environment for the next generations who shall face the
                                                         problem in future. </p>
-                                                </div>
-                                            </div>
-                                            <div class=" col-4">
-                                                <div class="timeline-box">
-                                                    <h6>Results of Hardwork</h6>
-                                                    <p> We have a very strong group of our senior team members and
-                                                        volunteers. But I must explain to you how all this mistaken idea of
-                                                        denounce pleasure and praising pain was born and I will give you a
-                                                        complete account. </p>
-                                                </div>
-                                            </div>
-                                            <div class=" col-4">
-                                                <div class="timeline-box">
-                                                    <h6>Project </h6>
-                                                    <p> On the other hand, we denounce with righteous indignation and
-                                                        dislike men who are so beguiled and demoralized by the charms of
-                                                        pleasure of the moment, so blinded by desire, that they cannot
-                                                        foresee. </p>
                                                 </div>
                                             </div>
                                         </div>
@@ -361,15 +343,17 @@
                                 <p>It is a long established fact that a reader will be distracted by the readable content of
                                     a page when looking at its layout. The point of using lorem sum is that it has a more or
                                     less normal distribution.</p>
-                                <div class="tuser"> <img src="images/tuser1.jpg" alt=""> <strong>Danny
-                                        Scotten</strong> Florida Partner </div>
+                                <div class="tuser"> <img src="{{ asset('front/images/tuser1.jpg') }}" alt="">
+                                    <strong>Danny
+                                        Scotten</strong> Florida Partner
+                                </div>
                             </div>
                             <!--testimonials box End-->
                             <!--testimonials box start-->
                             <div class="item">
                                 <p>As opposed to using 'Content here, content here', making it look like readable English.
                                     Many Desktop and Web Pages are using lorem ipsum.</p>
-                                <div class="tuser"> <img src="images/tuser2.jpg" alt="">
+                                <div class="tuser"> <img src="{{ asset('front/images/tuser1.jpg') }}" alt="">
                                     <strong>Richardson</strong> Florida Partner
                                 </div>
                             </div>
@@ -378,7 +362,8 @@
                             <div class="item">
                                 <p>It uses a dictionary of over 200 Latin words, combined with a handful of model sentence
                                     structures, to generate Lorem Ipsum which looks reasonable.</p>
-                                <div class="tuser"> <img src="images/tuser3.jpg" alt=""> <strong>Anna
+                                <div class="tuser"> <img src="{{ asset('front/images/tuser1.jpg') }}" alt="">
+                                    <strong>Anna
                                         Lillian</strong> Florida Partner </div>
                             </div>
                             <!--testimonials box End-->
@@ -387,7 +372,8 @@
                                 <p>Those who do not know how to pursue pleasure rationally encounter consequences that are
                                     extremely painful. Nor again is there anyone who loves or pursues or desires to obtain.
                                 </p>
-                                <div class="tuser"> <img src="images/tuser1.jpg" alt=""> <strong>Danny
+                                <div class="tuser"> <img src="{{ asset('front/images/tuser1.jpg') }}" alt="">
+                                    <strong>Danny
                                         Scotten</strong> Florida Partner </div>
                             </div>
                             <!--testimonials box End-->
@@ -396,7 +382,8 @@
                                 <p>It is a long established fact that a reader will be distracted by the readable content of
                                     a page when looking at its layout. The point of using lorem sum is that it has a more or
                                     less normal distribution.</p>
-                                <div class="tuser"> <img src="images/tuser1.jpg" alt=""> <strong>Danny
+                                <div class="tuser"> <img src="{{ asset('front/images/tuser1.jpg') }}" alt="">
+                                    <strong>Danny
                                         Scotten</strong> Florida Partner </div>
                             </div>
                             <!--testimonials box End-->
@@ -404,7 +391,7 @@
                             <div class="item">
                                 <p>As opposed to using 'Content here, content here', making it look like readable English.
                                     Many Desktop and Web Pages are using lorem ipsum.</p>
-                                <div class="tuser"> <img src="images/tuser2.jpg" alt="">
+                                <div class="tuser"> <img src="{{ asset('front/images/tuser1.jpg') }}" alt="">
                                     <strong>Richardson</strong> Florida Partner
                                 </div>
                             </div>
@@ -413,7 +400,8 @@
                             <div class="item">
                                 <p>It uses a dictionary of over 200 Latin words, combined with a handful of model sentence
                                     structures, to generate Lorem Ipsum which looks reasonable.</p>
-                                <div class="tuser"> <img src="images/tuser3.jpg" alt=""> <strong>Anna
+                                <div class="tuser"> <img src="{{ asset('front/images/tuser1.jpg') }}" alt="">
+                                    <strong>Anna
                                         Lillian</strong> Florida Partner </div>
                             </div>
                             <!--testimonials box End-->
@@ -422,7 +410,8 @@
                                 <p>Those who do not know how to pursue pleasure rationally encounter consequences that are
                                     extremely painful. Nor again is there anyone who loves or pursues or desires to obtain.
                                 </p>
-                                <div class="tuser"> <img src="images/tuser1.jpg" alt=""> <strong>Danny
+                                <div class="tuser"> <img src="{{ asset('front/images/tuser1.jpg') }}" alt="">
+                                    <strong>Danny
                                         Scotten</strong> Florida Partner </div>
                             </div>
                             <!--testimonials box End-->
@@ -431,7 +420,8 @@
                                 <p>It is a long established fact that a reader will be distracted by the readable content of
                                     a page when looking at its layout. The point of using lorem sum is that it has a more or
                                     less normal distribution.</p>
-                                <div class="tuser"> <img src="images/tuser1.jpg" alt=""> <strong>Danny
+                                <div class="tuser"> <img src="{{ asset('front/images/tuser1.jpg') }}" alt="">
+                                    <strong>Danny
                                         Scotten</strong> Florida Partner </div>
                             </div>
                             <!--testimonials box End-->
@@ -439,7 +429,7 @@
                             <div class="item">
                                 <p>As opposed to using 'Content here, content here', making it look like readable English.
                                     Many Desktop and Web Pages are using lorem ipsum.</p>
-                                <div class="tuser"> <img src="images/tuser2.jpg" alt="">
+                                <div class="tuser"> <img src="{{ asset('front/images/tuser1.jpg') }}" alt="">
                                     <strong>Richardson</strong> Florida Partner
                                 </div>
                             </div>
@@ -448,7 +438,8 @@
                             <div class="item">
                                 <p>It uses a dictionary of over 200 Latin words, combined with a handful of model sentence
                                     structures, to generate Lorem Ipsum which looks reasonable.</p>
-                                <div class="tuser"> <img src="images/tuser3.jpg" alt=""> <strong>Anna
+                                <div class="tuser"> <img src="{{ asset('front/images/tuser1.jpg') }}" alt="">
+                                    <strong>Anna
                                         Lillian</strong> Florida Partner </div>
                             </div>
                             <!--testimonials box End-->
@@ -457,7 +448,8 @@
                                 <p>Those who do not know how to pursue pleasure rationally encounter consequences that are
                                     extremely painful. Nor again is there anyone who loves or pursues or desires to obtain.
                                 </p>
-                                <div class="tuser"> <img src="images/tuser1.jpg" alt=""> <strong>Danny
+                                <div class="tuser"> <img src="{{ asset('front/images/tuser1.jpg') }}" alt="">
+                                    <strong>Danny
                                         Scotten</strong> Florida Partner </div>
                             </div>
                             <!--testimonials box End-->

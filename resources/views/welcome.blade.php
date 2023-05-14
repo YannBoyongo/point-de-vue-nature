@@ -184,44 +184,30 @@
                 <div class="col-md-4">
                     <!--title start-->
                     <div class="section-title">
-                        <strong>Our Next</strong>
-                        <h2>Events</h2>
+                        <strong>Récentes</strong>
+                        <h2>Réalisations</h2>
                     </div>
                     <!--title end-->
                     <div class="event-posts wf100">
-                        <!--Blog Post Start-->
-                        <div class="event-post">
-                            <div class="event-thumb">
-                                <a href="#"><i class="fas fa-link"></i></a> <img
-                                    src="{{ asset('front/images/ep1.jpg') }}" alt="">
-                                <ul class="post-meta">
-                                    <li>29 August, 2018 </li>
-                                    <li> 08:00 am - 01:00 pm</li>
-                                </ul>
+                        @forelse($latest_works as $work)
+                            <!--Blog Post Start-->
+                            <div class="event-post">
+                                <div class="event-thumb">
+                                    <a href="#"><i class="fas fa-link"></i></a> <img
+                                        src="{{ asset('front/images/ep1.jpg') }}" alt="">
+                                    {{-- <ul class="post-meta">
+                                        <li>29 August, 2018 </li>
+                                        <li> 08:00 am - 01:00 pm</li>
+                                    </ul> --}}
+                                </div>
+                                <div class="event-txt">
+                                    <h6><a href="#">{{ $work->title }}</a></h6>
+                                    {!! Illuminate\Support\Str::limit($work->description, 80, $end = '...') !!}
+                                </div>
                             </div>
-                            <div class="event-txt">
-                                <h6><a href="#">Forest Planting Campaign</a></h6>
-                                <p><i class="fas fa-map-marker-alt"></i> Green Gardendening Center, New York, USA
-                                </p>
-                            </div>
-                        </div>
-                        <!--Blog Post End-->
-                        <!--Blog Post Start-->
-                        <div class="event-post">
-                            <div class="event-thumb">
-                                <a href="#"><i class="fas fa-link"></i></a> <img
-                                    src="{{ asset('front/images/ep1.jpg') }}" alt="">
-                                <ul class="post-meta">
-                                    <li>29 August, 2018 </li>
-                                    <li> 08:00 am - 01:00 pm</li>
-                                </ul>
-                            </div>
-                            <div class="event-txt">
-                                <h6><a href="#">Save Energy by Solar System</a></h6>
-                                <p><i class="fas fa-map-marker-alt"></i> Electric Open Area, New York, USA </p>
-                            </div>
-                        </div>
-                        <!--Blog Post End-->
+                            <!--Blog Post End-->
+                        @empty
+                        @endforelse
                     </div>
                 </div>
             </div>

@@ -25,8 +25,14 @@
         <!--Header Start-->
         <header class="{{ Route::currentRouteName() == 'welcome' ? 'header-style-1' : 'header-style-2' }}">
             <nav class="navbar navbar-expand-lg">
-                <a class="navbar-brand" href="index.html"><img src="{{ asset('front/images/logo.png') }}"
-                        alt=""></a>
+                <a class="navbar-brand" href="{{ route('welcome') }}">
+                    @if ($setting->logo)
+                        <img src="{{ asset('storage/settings/' . $setting->logo . '') }}" alt="{{ $setting->name }}"
+                            style="width:auto; height:62px">
+                    @else
+                        <h1>LOGO</h1>
+                    @endif
+                </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse"
                     data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                     aria-label="Toggle navigation"> <i class="fas fa-bars"></i> </button>
@@ -39,7 +45,7 @@
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="blog.html" role="button" data-toggle="dropdown"
-                                aria-haspopup="true" aria-expanded="false"> Blogs </a>
+                                aria-haspopup="true" aria-expanded="false"> Science & Société </a>
                             <ul class="dropdown-menu">
                                 <li><a href="blog.html">Blog Default</a></li>
                                 <li><a href="blog-list.html">Blog List</a> </li>

@@ -4,6 +4,7 @@ use App\Http\Controllers\BannerController;
 use App\Http\Controllers\PartnerController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\SettingController;
+use App\Http\Controllers\WorkController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -74,5 +75,18 @@ Route::middleware('auth')->group(function () {
         Route::delete('posts/{post}', 'destroy')->name('posts.destroy');
         Route::get('posts/{post}/publish', 'publish')->name('posts.publish');
         Route::get('posts/{post}/unpublish', 'unpublish')->name('posts.unpublish');
+    });
+
+    //Work
+    Route::controller(WorkController::class)->group(function () {
+        Route::get('/works', 'index')->name('works.index');
+        Route::get('/works/{work}/edit', 'edit')->name('works.edit');
+        Route::put('/works/{work}', 'update')->name('works.update');
+        Route::post('/works', 'store')->name('works.store');
+        Route::put('works-add-image/{work}', 'add_image')->name('works.add.image');
+        Route::put('works-delete-image/{work}', 'delete_image')->name('works.delete.image');
+        Route::delete('works/{work}', 'destroy')->name('works.destroy');
+        Route::get('works/{work}/publish', 'publish')->name('works.publish');
+        Route::get('works/{work}/unpublish', 'unpublish')->name('works.unpublish');
     });
 });
