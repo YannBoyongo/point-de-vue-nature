@@ -40,10 +40,10 @@ class FrontendController extends Controller
 
     public function post(Post $post)
     {
-        return view('post', 'post');
+        return view('post', compact('post'));
     }
     public function work(Work $work)
     {
-        return view('work', 'work');
+        return view('work', compact('work'));
     }
 }

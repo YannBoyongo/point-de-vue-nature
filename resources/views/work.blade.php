@@ -7,6 +7,7 @@
             <h1>Réalisations</h1>
             <ul>
                 <li><a href="{{ route('welcome') }}">Accueil</a></li>
+                <li><a href="{{ route('work.list') }}"> Réalisations </a></li>
                 <li><a href="#">{{ $work->title }}</a></li>
             </ul>
         </div>

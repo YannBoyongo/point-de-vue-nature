@@ -164,10 +164,11 @@
                         @forelse($latest_posts as $post)
                             <!--Blog Post Start-->
                             <div class="blog-post wf100">
-                                <div class="blog-thumb"> <a href="#"><i class="fas fa-link"></i></a> <img
+                                <div class="blog-thumb"> <a href="{{ route('post.show', $post) }}"><i
+                                            class="fas fa-link"></i></a> <img
                                         src="{{ asset('storage/posts/' . $post->image . '') }}" alt=""></div>
                                 <div class="blog-txt">
-                                    <h5><a href="#">{{ $post->title }}</a>
+                                    <h5><a href="{{ route('post.show', $post) }}">{{ $post->title }}</a>
                                     </h5>
                                     <ul class="post-meta">
                                         <li><span>par:</span> Admin</li>
@@ -193,7 +194,7 @@
                             <!--Blog Post Start-->
                             <div class="event-post">
                                 <div class="event-thumb">
-                                    <a href="#"><i class="fas fa-link"></i></a> <img
+                                    <a href="{{ route('work.show', $work) }}"><i class="fas fa-link"></i></a> <img
                                         src="{{ asset('storage/works/' . $work->image . '') }}" alt="">
                                     {{-- <ul class="post-meta">
                                         <li>29 August, 2018 </li>
@@ -201,7 +202,7 @@
                                     </ul> --}}
                                 </div>
                                 <div class="event-txt">
-                                    <h6><a href="#">{{ $work->title }}</a></h6>
+                                    <h6><a href="{{ route('work.show', $work) }}">{{ $work->title }}</a></h6>
                                     {!! Illuminate\Support\Str::limit($work->description, 80, $end = '...') !!}
                                 </div>
                             </div>
