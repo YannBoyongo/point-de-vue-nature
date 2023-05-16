@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Work;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 
 class WorkController extends Controller
 {
@@ -42,7 +43,7 @@ class WorkController extends Controller
             'title' => 'required',
         ]);
 
-        $slug = "";
+        $slug = Str::slug($request->title);
 
         $work = Work::create([
             'title' => $request->title,
@@ -89,6 +90,7 @@ class WorkController extends Controller
         ]);
 
         $work->title = $request->title;
+        $work->slug = Str::slug($request->title);
         $work->description = $request->description;
         $work->save();
 

@@ -37,4 +37,13 @@ class FrontendController extends Controller
         $works = Work::orderByDesc('id')->where('status', Work::ACTIVE)->get();
         return view('works', compact('works'));
     }
+
+    public function post(Post $post)
+    {
+        return view('post', 'post');
+    }
+    public function work(Work $work)
+    {
+        return view('work', 'work');
+    }
 }

@@ -23,6 +23,8 @@ Route::get('/about-us', [App\Http\Controllers\FrontendController::class, 'aboutu
 Route::get('/contact-us', [App\Http\Controllers\FrontendController::class, 'contactus'])->name('contact.us');
 Route::get('/post-list', [App\Http\Controllers\FrontendController::class, 'posts'])->name('post.list');
 Route::get('/work-list', [App\Http\Controllers\FrontendController::class, 'works'])->name('work.list');
+Route::get('/works/{slug}', [App\Http\Controllers\FrontendController::class, 'work'])->name('work.show');
+Route::get('/posts/{slug}', [App\Http\Controllers\FrontendController::class, 'post'])->name('post.show');
 
 Auth::routes();
 

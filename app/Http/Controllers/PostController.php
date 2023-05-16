@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 
 class PostController extends Controller
 {
@@ -42,7 +43,7 @@ class PostController extends Controller
             'title' => 'required',
         ]);
 
-        $slug = "";
+        $slug = Str::slug($request->title);
 
         $post = Post::create([
             'title' => $request->title,
@@ -89,6 +90,7 @@ class PostController extends Controller
         ]);
 
         $post->title = $request->title;
+        $post->slug = Str::slug($request->title);
         $post->description = $request->description;
         $post->save();
 
