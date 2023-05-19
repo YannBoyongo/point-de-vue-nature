@@ -46,4 +46,5 @@ class FrontendController extends Controller
     {
         return view('work', compact('work'));
     }
+    
 }

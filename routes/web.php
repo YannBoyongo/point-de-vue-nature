@@ -5,8 +5,12 @@ use App\Http\Controllers\PartnerController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\SettingController;
 use App\Http\Controllers\WorkController;
+use App\Mail\ContactForm;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
+use Spatie\Honeypot\ProtectAgainstSpam;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,6 +30,19 @@ Route::get('/post-list', [App\Http\Controllers\FrontendController::class, 'posts
 Route::get('/work-list', [App\Http\Controllers\FrontendController::class, 'works'])->name('work.list');
 Route::get('/works/{work:slug}', [App\Http\Controllers\FrontendController::class, 'work'])->name('work.show');
 Route::get('/posts/{post:slug}', [App\Http\Controllers\FrontendController::class, 'post'])->name('post.show');
+
+Route::post('/send-mail', function (Request $request) {
+    $contact = $request->validate([
+        'name' => 'required',
+        'email' => 'required',
+        'phone' => 'required',
+        'subject' => 'required',
+        'message' => 'required',
+    ]);
+    $email = "contact@pvnature.org";
+    Mail::to($email)->send(new ContactForm($contact));
+
+})->name('send.mail')->middleware(ProtectAgainstSpam::class);
 
 Auth::routes();
 

@@ -53,26 +53,30 @@
                 <div class="col-md-6">
                     <div class="contact-form">
                         <h3>Laissez-nous un message</h3>
-                        <ul class="cform">
-                            <li class="half pr-15">
-                                <input type="text" class="form-control" name="name" placeholder="Nom complet">
-                            </li>
-                            <li class="half pl-15">
-                                <input type="text" name="email" class="form-control" placeholder="Email">
-                            </li>
-                            <li class="half pr-15">
-                                <input type="text" name="phone" class="form-control" placeholder="Téléphone">
-                            </li>
-                            <li class="half pl-15">
-                                <input type="text" name="subject" class="form-control" placeholder="Objet">
-                            </li>
-                            <li class="full">
-                                <textarea class="textarea-control" name="message" placeholder="Message"></textarea>
-                            </li>
-                            <li class="full">
-                                <input type="submit" value="Envoyer" class="fsubmit">
-                            </li>
-                        </ul>
+                        <form action="{{ route('send.mail') }}" method="post">
+                            @csrf
+                            <ul class="cform">
+                                <li class="half pr-15">
+                                    <input type="text" class="form-control" name="name" placeholder="Nom complet">
+                                </li>
+                                <li class="half pl-15">
+                                    <input type="text" name="email" class="form-control" placeholder="Email">
+                                </li>
+                                <x-honeypot />
+                                <li class="half pr-15">
+                                    <input type="text" name="phone" class="form-control" placeholder="Téléphone">
+                                </li>
+                                <li class="half pl-15">
+                                    <input type="text" name="subject" class="form-control" placeholder="Objet">
+                                </li>
+                                <li class="full">
+                                    <textarea class="textarea-control" name="message" placeholder="Message"></textarea>
+                                </li>
+                                <li class="full">
+                                    <input type="submit" value="Envoyer" class="fsubmit">
+                                </li>
+                            </ul>
+                        </form>
                     </div>
                 </div>
                 <div class="col-md-6">
