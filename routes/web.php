@@ -42,6 +42,8 @@ Route::post('/send-mail', function (Request $request) {
     $email = "contact@pvnature.org";
     Mail::to($email)->send(new ContactForm($contact));
 
+    return redirect()->back()->with('message', "message envoyé avec succès!");
+
 })->name('send.mail')->middleware(ProtectAgainstSpam::class);
 
 Auth::routes();

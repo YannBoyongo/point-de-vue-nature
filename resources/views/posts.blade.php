@@ -12,4 +12,31 @@
         </div>
     </section>
     <!--Inner Header End-->
+    <!--Blog Start-->
+    <section class="wf100 p80 blog">
+        <div class="container">
+            <div class="row">
+                @forelse($posts as $post)
+                    <!--Blog Small Post Start-->
+                    <div class="col-md-6">
+                        <div class="blog-small-post">
+                            <div class="post-thumb"> <a href="{{ route('post.show', $post) }}"><i
+                                        class="fas fa-link"></i></a> <img
+                                    src="{{ asset('storage/posts/' . $post->image . '') }}" alt=""> </div>
+                            <div class="post-txt">
+                                <span class="pdate"> <i class="fas fa-calendar-alt"></i>
+                                    {{ date('d-m-Y', strtotime($post->published_at)) }}</span>
+                                <h5><a href="{{ route('post.show', $post) }}">{{ $post->title }}</a></h5>
+                                <p>{!! Illuminate\Support\Str::limit($post->description, 50, $end = '...') !!}</p>
+                                <a href="{{ route('post.show', $post) }}" class="rm">Lire plus</a>
+                            </div>
+                        </div>
+                    </div>
+                @empty
+                    <h2>Aucune publications trouvées</h2>
+                @endforelse
+            </div>
+        </div>
+    </section>
+    <!--Blog Small Post End-->
 @endsection
