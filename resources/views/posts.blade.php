@@ -35,6 +35,11 @@
                 @empty
                     <h2>Aucune publications trouvées</h2>
                 @endforelse
+                @if ($posts->hasPages())
+                    <div class="gt-pagination">
+                        {{ $posts->links() }}
+                    </div>
+                @endif
             </div>
         </div>
     </section>

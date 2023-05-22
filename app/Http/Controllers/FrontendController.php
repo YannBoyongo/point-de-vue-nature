@@ -29,12 +29,12 @@ class FrontendController extends Controller
 
     public function posts()
     {
-        $posts = Post::orderByDesc('id')->where('status', Post::ACTIVE)->get();
+        $posts = Post::orderByDesc('id')->where('status', Post::ACTIVE)->paginate(8);
         return view('posts', compact('posts'));
     }
     public function works()
     {
-        $works = Work::orderByDesc('id')->where('status', Work::ACTIVE)->get();
+        $works = Work::orderByDesc('id')->where('status', Work::ACTIVE)->paginate(8);
         return view('works', compact('works'));
     }
 
@@ -46,5 +46,5 @@ class FrontendController extends Controller
     {
         return view('work', compact('work'));
     }
-    
+
 }
